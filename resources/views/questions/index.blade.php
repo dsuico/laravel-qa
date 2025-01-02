@@ -31,8 +31,19 @@
                       <div class="media-body d-flex flex-column flex-fill">
                         <div class="d-flex">
                             <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
-                          <div class="flex-fill">
-                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info float-end">Edit</a>
+                          <div class="d-flex flex-fill">
+                            <div class="flex-fill mx-2">
+                              <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info float-end">Edit</a>
+                            </div>
+                            <div>
+                            <form action="{{ route('questions.destroy', $question->id) }}" method="post">
+                              @method('DELETE')
+                              @csrf
+                              <button class="btn btn-sm btn-outline-danger" type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                            </form>
+                            </div>
+
+
                           </div>
                         </div>
                         <p class="lead">
