@@ -34,7 +34,9 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestionRequest $request)
     {
-        //
+        $request->user()->questions()->create($request->all());
+
+        return redirect()->route('questions.index')->with('success', 'Your question has been submitted');
     }
 
     /**

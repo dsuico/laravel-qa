@@ -14,8 +14,9 @@
                   </div>
                 </div>
                 <div class="card-body">
+                  @include('layouts._messages')
                   @foreach($questions as $question)
-                    <div class="media d-flex justify-content-center gap-3">
+                    <div class="media d-flex">
                       <div class="d-flex flex-column counters">
                         <div class="vote">
                           <strong>{{ $question->votes }}</strong> {{ \Illuminate\Support\Str::plural('vote', $question->votes) }}
