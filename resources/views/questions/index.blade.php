@@ -28,8 +28,13 @@
                           {{ $question->views . ' ' . \Illuminate\Support\Str::plural('view', $question->views) }}
                         </div>
                       </div>
-                      <div class="media-body">
-                        <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
+                      <div class="media-body d-flex flex-column flex-fill">
+                        <div class="d-flex">
+                            <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
+                          <div class="flex-fill">
+                            <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info float-end">Edit</a>
+                          </div>
+                        </div>
                         <p class="lead">
                           Asked by
                           <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
