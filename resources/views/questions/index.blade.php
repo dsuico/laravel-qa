@@ -32,7 +32,7 @@
                         <div class="d-flex">
                             <h3 class="mt-0"><a href="{{ $question->url }}">{{ $question->title }}</a></h3>
                           <div class="d-flex flex-fill">
-                            <div class="flex-fill mx-2">
+                            <div class="flex-fill mx-2 ">
                               <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info float-end">Edit</a>
                             </div>
                             <div>
