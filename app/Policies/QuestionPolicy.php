@@ -13,23 +13,7 @@ class QuestionPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can view the model.
-     */
-    public function view(User $user, Question $question): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can create models.
-     */
-    public function create(User $user): bool
-    {
-        return false;
+        return true;
     }
 
     /**
@@ -37,7 +21,7 @@ class QuestionPolicy
      */
     public function update(User $user, Question $question): bool
     {
-        return false;
+        return $user->id === $question->user_id;
     }
 
     /**
@@ -45,22 +29,6 @@ class QuestionPolicy
      */
     public function delete(User $user, Question $question): bool
     {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     */
-    public function restore(User $user, Question $question): bool
-    {
-        return false;
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     */
-    public function forceDelete(User $user, Question $question): bool
-    {
-        return false;
+        return $user->id === $question->user_id && $question->answers < 1;
     }
 }
